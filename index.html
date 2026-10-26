@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Markdown Studio — Free Online Markdown Editor with Live Preview | S3eidat Tools</title>
+<meta name="description" content="Write Markdown with a live, safe preview: headings, lists, task lists, tables, code blocks, links and images. Autosaves locally, exports .md and .html, prints to PDF. Free and private.">
+<meta property="og:title" content="Markdown Studio — free, private Markdown editor">
+<meta property="og:description" content="Live Markdown editor with preview and export. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="markdown-studio">
+<main class="s3-main md-main">
+  <section class="s3-hero no-print">
+    <h1>Markdown Studio</h1>
+    <p>Write on the left, see it on the right. Autosaved on this device, exported as .md or .html, or printed to PDF.</p>
+  </section>
+
+  <section class="card md-bar no-print">
+    <div class="row md-tools" id="tools" role="toolbar" aria-label="Formatting">
+      <button class="btn ghost small" data-act="bold" title="Bold (Ctrl+B)" aria-label="Bold"><b>B</b></button>
+      <button class="btn ghost small" data-act="italic" title="Italic (Ctrl+I)" aria-label="Italic"><i>I</i></button>
+      <button class="btn ghost small" data-act="strike" title="Strikethrough" aria-label="Strikethrough"><s>S</s></button>
+      <button class="btn ghost small" data-act="h2" title="Heading" aria-label="Heading">H</button>
+      <span class="md-sep"></span>
+      <button class="btn ghost small" data-act="link" title="Link (Ctrl+K)">Link</button>
+      <button class="btn ghost small" data-act="image" title="Image">Image</button>
+      <button class="btn ghost small mono" data-act="code" title="Inline code" aria-label="Inline code">&lt;/&gt;</button>
+      <button class="btn ghost small mono" data-act="fence" title="Code block" aria-label="Code block">{ }</button>
+      <span class="md-sep"></span>
+      <button class="btn ghost small" data-act="ul" title="Bulleted list">• List</button>
+      <button class="btn ghost small" data-act="ol" title="Numbered list">1. List</button>
+      <button class="btn ghost small" data-act="task" title="Task list">☐ Task</button>
+      <button class="btn ghost small" data-act="quote" title="Quote">&ldquo; Quote</button>
+      <button class="btn ghost small" data-act="table" title="Table">Table</button>
+      <button class="btn ghost small" data-act="hr" title="Divider" aria-label="Divider">—</button>
+    </div>
+    <div class="row md-actions">
+      <div class="seg" id="view" role="group" aria-label="View">
+        <button aria-pressed="true" data-v="split">Split</button>
+        <button aria-pressed="false" data-v="edit">Write</button>
+        <button aria-pressed="false" data-v="preview">Preview</button>
+      </div>
+      <span class="grow"></span>
+      <label class="btn small" id="open"><svg class="i"><use href="#i-upload"/></svg>Open<input type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden></label>
+      <button class="btn small" id="saveMd"><svg class="i"><use href="#i-download"/></svg>.md</button>
+      <button class="btn small" id="saveHtml"><svg class="i"><use href="#i-download"/></svg>.html</button>
+      <button class="btn small" id="copyHtml"><svg class="i"><use href="#i-copy"/></svg>HTML</button>
+      <button class="btn small primary" id="print"><svg class="i"><use href="#i-file"/></svg>Print / PDF</button>
+    </div>
+  </section>
+
+  <div class="md-grid mt" id="grid" data-view="split">
+    <section class="card md-pane md-edit-pane no-print">
+      <label for="input" class="md-pane-h"><span>Markdown</span><span class="faint" id="saved"></span></label>
+      <textarea class="textarea md-input" id="input" dir="auto" spellcheck="true" placeholder="# Start writing…"></textarea>
+    </section>
+    <section class="card md-pane md-prev-pane">
+      <div class="md-pane-h no-print"><span>Preview</span><label class="check faint"><input type="checkbox" id="sync" checked> Sync scroll</label></div>
+      <article class="md-body" id="preview" dir="auto" tabindex="0"></article>
+    </section>
+  </div>
+  <p class="faint mt no-print" id="stats"></p>
+</main>
+<script src="md.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
